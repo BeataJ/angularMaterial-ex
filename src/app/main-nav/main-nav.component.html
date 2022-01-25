@@ -1,5 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+  <mat-sidenav #drawer class="sidenav"
+    [ngClass]="{hidden: !(isHandset$ | async)}"
+   fixedInViewport='false'
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
@@ -21,6 +23,10 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>AngularMaterial</span>
+      <span class="spacer"></span>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
     </mat-toolbar>
     <ng-content></ng-content>
     <!-- Add Content Here -->
